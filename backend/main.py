@@ -24,12 +24,15 @@ app = FastAPI(
 # not prefix-based - so every request from the Vite frontend was silently
 # blocked by the browser, which looks exactly like "papers not loading" even
 # though the backend is running fine.
+
 origins = [
-    "http://localhost",         # generic localhost, no port
-    "http://localhost:3000",    # Create React App default port
-    "http://localhost:5173",    # Vite dev server default port
-    "http://127.0.0.1:5173",    # Vite dev server, alternate host form
-    "https://abhijitbora.com",  # Production domain
+    "http://localhost",
+    "http://localhost:3000",
+    "http://localhost:5173",
+    "http://127.0.0.1:5173",
+    "https://abhijitbora.com",
+    "https://abhijit-bora-academic-829352352119.asia-southeast1.run.app",
+    "https://abhijit-bora-academic.pages.dev",  # your live Cloudflare Pages site
 ]
 
 app.add_middleware(
