@@ -32,7 +32,7 @@ origins = [
     "http://127.0.0.1:5173",
     "https://abhijitbora.com",
     "https://abhijit-bora-academic-829352352119.asia-southeast1.run.app",
-    "https://abhijit-bora-academic.pages.dev",  # your live Cloudflare Pages site
+    "https://812edfd3.abhijit-bora-academic.pages.dev/",  # your live Cloudflare Pages site
 ]
 
 app.add_middleware(
