@@ -1,0 +1,15 @@
+.signal .sig-b { --o: 0.5; }
+.signal .sig-a { --o: 1; }
+.signal .sig-dot { --o: 1; }
+
+@keyframes sig-in { from { opacity: 0; } to { opacity: var(--o, 1); } }
+@keyframes sig-pulse { 0%, 100% { opacity: 0.18; } 45% { opacity: 1; } }
+
+.signal--tune .sig-dot { animation: sig-in 0.4s ease-out both 0.1s; }
+.signal--tune .sig-a   { animation: sig-in 0.4s ease-out both 0.28s; }
+.signal--tune .sig-b   { animation: sig-in 0.4s ease-out both 0.46s; }
+
+/* Loading is the one place a loop is justified: it says "still working". */
+.signal--loading .sig-dot { animation: sig-pulse 1.4s ease-in-out infinite 0s; }
+.signal--loading .sig-a   { animation: sig-pulse 1.4s ease-in-out infinite 0.18s; }
+.signal--loading .sig-b   { animation: sig-pulse 1.4s ease-in-out infinite 0.36s; }

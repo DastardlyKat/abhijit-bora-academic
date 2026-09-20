@@ -1,0 +1,33 @@
+.btn {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 14px 24px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--text-primary);
+  cursor: pointer;
+  transition: color 0.3s ease, border-color 0.3s ease, transform 0.15s ease;
+}
+/* The hover fill wipes in from the left — a tuning-dial gesture, kept quiet */
+.btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  transform: translate3d(-101%, 0, 0);
+  transition: transform 0.45s var(--ease-out);
+}
+.btn:hover::before, .btn:focus-visible::before { transform: none; }
+.btn:active { transform: scale(0.985); }
+
+.btn--primary { background: var(--text-primary); color: var(--bg-page); }
+.btn--primary::before { background: var(--accent); }
+.btn--primary:hover, .btn--primary:focus-visible { border-color: var(--accent); }
+
+.btn--ghost { background: transparent; color: var(--accent); border-color: var(--accent); }
+.btn--ghost::before { background: var(--accent-soft); }

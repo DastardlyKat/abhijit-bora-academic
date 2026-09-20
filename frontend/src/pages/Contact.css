@@ -1,0 +1,94 @@
+.contact {
+  display: grid;
+  grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+  gap: clamp(32px, 5vw, 72px);
+  align-items: start;
+  margin-top: clamp(28px, 4vw, 48px);
+  text-align: left;
+}
+
+/* Form ------------------------------------------------------------------- */
+.form-card { padding: clamp(24px, 3.4vw, 40px); }
+.form { display: flex; flex-direction: column; gap: 26px; }
+
+.field { position: relative; }
+.field__label {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 0.8125rem; font-weight: 600; letter-spacing: 0.01em;
+  color: var(--text-secondary);
+  transition: color 0.25s ease;
+}
+.field__control {
+  display: block; width: 100%;
+  padding: 10px 0 12px;
+  font-family: var(--font-sans); font-size: 1.0625rem; line-height: 1.5;
+  color: var(--text-primary);
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--border-strong);
+  border-radius: 0;
+  outline: none;                          /* replaced by the drawn underline below */
+  transition: border-color 0.25s ease;
+}
+.field__control::placeholder { color: var(--text-faint); opacity: 1; }
+.field__control--area { resize: vertical; min-height: 9rem; line-height: 1.6; }
+.field__control--select {
+  appearance: none; cursor: pointer;
+  padding-right: 28px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8' fill='none'%3E%3Cpath d='M1 1.5 6 6.5l5-5' stroke='%23716B58' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 2px center;
+}
+.field__control:hover { border-color: var(--text-faint); }
+
+/* Focus: an accent line draws in from the left and the label picks up the accent */
+.field::after {
+  content: "";
+  position: absolute; left: 0; right: 0; bottom: 0; height: 2px;
+  background: var(--accent);
+  transform: scaleX(0); transform-origin: left center;
+  transition: transform 0.45s var(--ease-out);
+  pointer-events: none;
+}
+.field:focus-within::after { transform: none; }
+.field:focus-within .field__label { color: var(--accent); }
+
+/* Details ------------------------------------------------------------------- */
+.details { border-top: 1px solid var(--border-strong); }
+.details__row {
+  display: grid;
+  grid-template-columns: 8.5rem minmax(0, 1fr);
+  gap: 4px 20px;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--border);
+}
+.details dt {
+  font-family: var(--font-mono); font-size: var(--fs-meta); letter-spacing: 0.02em;
+  color: var(--text-faint);
+  padding-top: 0.28em;
+}
+.details dd { color: var(--text-body); overflow-wrap: anywhere; }
+
+.map {
+  margin-top: clamp(24px, 3vw, 36px);
+  aspect-ratio: 4 / 3;
+  min-height: 240px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg-sunk);
+}
+.map iframe {
+  display: block; width: 100%; height: 100%; border: 0;
+  filter: grayscale(0.35) sepia(0.12) contrast(0.98);   /* sits in the paper palette; full colour on hover */
+  transition: filter 0.5s ease;
+}
+.map:hover iframe, .map:focus-within iframe { filter: none; }
+
+@media (max-width: 860px) {
+  .contact { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 480px) {
+  .details__row { grid-template-columns: minmax(0, 1fr); }
+}

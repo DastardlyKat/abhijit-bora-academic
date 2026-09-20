@@ -1,0 +1,16 @@
+.ph { padding: clamp(32px, 6vw, 72px) 0 0; text-align: left; }
+.ph__title { font-size: var(--fs-h1); letter-spacing: -0.025em; line-height: 1.04; }
+.ph__desc {
+  margin-top: clamp(14px, 2vw, 22px);
+  max-width: 44ch;
+  font-family: var(--font-display);
+  font-size: var(--fs-lede);
+  line-height: 1.5;
+  color: var(--text-secondary);
+}
+.ph__rule { height: 1px; margin-top: clamp(28px, 4vw, 48px); background: var(--border-strong); transform-origin: left center; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .ph__rule { transform: scaleX(0); }
+  html[data-fonts="ready"] .ph__rule { transform: none; transition: transform 1.3s var(--ease-out) 0.2s; }
+}

@@ -1,0 +1,21 @@
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-card);
+  padding: clamp(20px, 3vw, 32px);
+  color: var(--text-primary);
+}
+
+.card--interactive {
+  position: relative;
+  transition: transform 0.35s var(--ease-out), box-shadow 0.35s var(--ease-out), border-color 0.25s ease;
+}
+@media (hover: hover) {
+  .card--interactive:hover,
+  .card--interactive:focus-within {
+    transform: translate3d(0, -2px, 0);
+    border-color: var(--border-strong);
+    box-shadow: var(--shadow-lift);
+  }
+}

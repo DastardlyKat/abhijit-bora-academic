@@ -1,0 +1,40 @@
+.sh { margin: var(--space-section) 0 clamp(24px, 3.5vw, 40px); text-align: left; }
+.sh__row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 8px 48px;
+}
+.sh__title { font-size: var(--fs-h2); letter-spacing: -0.015em; flex: 1 1 auto; }
+.sh__desc {
+  flex: 0 1 400px;
+  font-size: 0.9375rem;
+  line-height: 1.55;
+  color: var(--text-secondary);
+  padding-bottom: 0.45em;
+}
+.sh__action { padding-bottom: 0.55em; }
+.sh__rule {
+  height: 1px;
+  margin-top: 20px;
+  background: var(--border-strong);
+  transform-origin: left center;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .sh__rule { transform: scaleX(0); transition: transform 1.2s var(--ease-out) 0.08s; }
+  .sh[data-inview="true"] .sh__rule { transform: none; }
+
+  .sh__desc, .sh__action {
+    opacity: 0;
+    transform: translate3d(0, 8px, 0);
+    transition: opacity 0.8s var(--ease-out) 0.28s, transform 0.8s var(--ease-out) 0.28s;
+  }
+  .sh[data-inview="true"] .sh__desc,
+  .sh[data-inview="true"] .sh__action { opacity: 1; transform: none; }
+}
+
+@media (max-width: 720px) {
+  .sh__desc { flex-basis: 100%; }
+}

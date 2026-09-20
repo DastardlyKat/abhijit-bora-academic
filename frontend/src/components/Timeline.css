@@ -1,0 +1,103 @@
+/* Rows are 28px-tall first lines so period, node and title share a centre (14px).
+   Keep in step with NODE_Y in useTimelineProgress.ts */
+.tl { --node: 11px; }
+
+.tl__item {
+  display: grid;
+  grid-template-columns: 224px 36px minmax(0, 1fr);
+  grid-template-areas: "period rail body";
+  padding-bottom: clamp(32px, 4vw, 48px);
+  text-align: left;
+}
+.tl__item[data-last="true"] { padding-bottom: 0; }
+
+.tl__period {
+  grid-area: period;
+  padding-right: 6px;
+  text-align: right;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  line-height: 28px;
+  white-space: nowrap;
+  color: var(--text-secondary);
+}
+
+/* Rail ---------------------------------------------------------------- */
+.tl__rail { grid-area: rail; position: relative; }
+.tl__seg {
+  position: absolute; left: 50%; top: 14px; height: 100%; width: 1px;
+  margin-left: -0.5px;
+  background: var(--border-strong);
+}
+.tl__item[data-last="true"] .tl__seg { display: none; }
+.tl__seg::after {
+  content: "";
+  position: absolute; inset: 0;
+  background: var(--accent);
+  transform: scaleY(var(--f, 0));
+  transform-origin: top center;
+}
+
+.tl__node {
+  position: absolute; left: 50%; top: calc(14px - var(--node) / 2);
+  width: var(--node); height: var(--node);
+  margin-left: calc(var(--node) / -2);
+  border-radius: 50%;
+  background: var(--bg-page);
+  border: 1.5px solid var(--border-strong);
+  transition: border-color 0.4s ease;
+}
+.tl__node::after {
+  content: "";
+  position: absolute; inset: 1.5px;
+  border-radius: 50%;
+  background: var(--accent);
+  transform: scale(0);
+  transition: transform 0.45s var(--ease-out);
+}
+.tl__item[data-on="true"] .tl__node { border-color: var(--accent); }
+.tl__item[data-on="true"] .tl__node::after { transform: scale(1); }
+
+/* Present role: the "on air" light */
+.tl__item[data-current="true"] .tl__node { box-shadow: 0 0 0 4px rgba(162, 62, 44, 0.14); }
+.tl__item[data-current="true"][data-on="true"] .tl__node { border-color: var(--stamp); }
+.tl__item[data-current="true"] .tl__node::after { background: var(--stamp); }
+
+/* Body ---------------------------------------------------------------- */
+.tl__body { grid-area: body; min-width: 0; }
+.tl__kicker {
+  margin-bottom: -6px;
+  font-family: var(--font-mono);
+  font-size: 0.75rem; font-weight: 600;
+  line-height: 28px;
+  letter-spacing: 0.04em;
+  color: var(--accent);
+}
+.tl__title { font-size: var(--fs-h3); font-weight: 600; line-height: 1.25; letter-spacing: -0.005em; text-wrap: pretty; }
+.tl__primary { margin-top: 6px; font-weight: 500; color: var(--text-primary); line-height: 1.45; }
+.tl__secondary { margin-top: 2px; font-size: 0.9375rem; color: var(--text-secondary); line-height: 1.45; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .tl__period, .tl__body {
+    opacity: 0;
+    transform: translate3d(0, 10px, 0);
+    transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out);
+  }
+  .tl__item[data-seen="true"] .tl__period,
+  .tl__item[data-seen="true"] .tl__body { opacity: 1; transform: none; }
+  .tl__item[data-seen="true"] .tl__body { transition-delay: 0.06s; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .tl__seg::after { transform: none; }
+  .tl__node { border-color: var(--accent); }
+  .tl__node::after { transform: scale(1); }
+  .tl__item[data-current="true"] .tl__node { border-color: var(--stamp); }
+}
+
+@media (max-width: 900px) {
+  .tl__item {
+    grid-template-columns: 24px minmax(0, 1fr);
+    grid-template-areas: "rail period" "rail body";
+  }
+  .tl__period { text-align: left; padding-right: 0; }
+}

@@ -1,0 +1,46 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Vite cache
+.vite
+
+# Python
+venv/
+__pycache__/
+*.pyc
+
+# Secrets - never commit these, real credentials live only in your local
+# .env and in whichever host's environment variable settings (Cloud Run,
+# Render, etc.)
+.env
+
+# SQLite database - local dev data only; production uses Neon (Postgres),
+# and this file regenerates itself automatically on first run anyway
+app.db
+
+# Locally-stored PDFs - only used as a fallback when R2 env vars aren't
+# set (see backend/storage.py); production PDFs live in Cloudflare R2, not
+# in git
+uploads/
