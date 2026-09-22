@@ -145,7 +145,9 @@ export default function Home() {
           </div>
 
           <p className="hero__bio seq" style={seq(680)}>
-            Short bio — 2-3 lines. Research interests, current focus, institutional affiliations. Should read like a byline.
+            I am a Professor at the Department of Mass Communication and Journalism, Tezpur University, with nearly 29 years spanning journalism, 
+            broadcasting, and academia. My research interests include journalism, community radio, and media literacy, with a growing focus on 
+            science and development communication.
           </p>
 
           <div className="hero__tags seq" style={seq(840)}>

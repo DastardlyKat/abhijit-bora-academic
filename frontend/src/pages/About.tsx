@@ -26,23 +26,32 @@ const stats = [
 const bio = [
   {
     label: "Who I am",
-    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ut turpis ac nunc elementum mattis. Vivamus eget congue tellus. Curabitur mattis fermentum est. Nullam pellentesque odio elit, et consequat dui faucibus ac. Curabitur interdum ex at lobortis pretium. Nulla facilisi. Morbi est metus, commodo eu nulla ut, volutpat tincidunt ex.",
+    text: `I am a Journalist first with some interests in sharing my experiences in this field and also at the same time learning from 
+    newer perspectives of the Young Freshmen who are herbingers of hope and the Newer Order of Things in the coming days – both in Media 
+    and Life in general. I have been closely involved with both sides of Media and teaching the subject for more than two-and-a-half decades. 
+    So I would deem myself highly grateful if my humble efforts in the field can be of ‘any help’ to the upcoming youngsters who are the 
+    citizens of the Brave New World of tomorrow.`,
   },
   {
     label: "Research focus",
-    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ut turpis ac nunc elementum mattis. Vivamus eget congue tellus. Curabitur mattis fermentum est. Nullam pellentesque odio elit, et consequat dui faucibus ac. Curabitur interdum ex at lobortis pretium. Nulla facilisi.",
+    text: `It varies from Journalism to community radio to media literacy though the first few are my priority and favourite areas. Coming 
+    from Journalism background this are holds a special place in my research focus while at the same time I am open to exploring new avenues 
+    as we progress with time and newer developments come to us.`,
   },
   {
     label: "Teaching philosophy",
-    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ut turpis ac nunc elementum mattis. Vivamus eget congue tellus. Curabitur mattis fermentum est. Nullam pellentesque odio elit, et consequat dui faucibus ac.",
+    text: `Facilitate the learners by showing them the paths and ways and means of exploring newer horizons based on one’s natural capacity. 
+    Also trying to impress upon the importance of keeping one’s base firmly based on one’s local culture and realities and issues et al. 
+    I believe only a blended learning based on theoretical and practical aspects would bring in the desired achievements to the upcoming 
+    youngsters seeking knowledge and a respectable profession for their life.`,
   },
 ];
 
 // Placeholder blurbs are kept word-for-word; they are the owner's to fill in.
 const overview = [
-  { title: "Research", text: "2 – 3 lines summary" },
-  { title: "Teaching", text: "Courses you teach" },
-  { title: "Media", text: "TV appearances, newspaper columns, radio, interviews" },
+  { title: "Research", text: "Supervising Ph D students and also micro and macro level research for writing various journal paparticles / features for newspapers, magazines – both in English and Assamese (my mother tongue)." },
+  { title: "Teaching", text: "A means to achieve knowledge by facilitating theoretical and practical aspects of life with adequate importance to ground realities surrounding us" },
+  { title: "Media", text: "Journalism, community radio, science communication, media writing, development communication" },
 ];
 
 const education = [
