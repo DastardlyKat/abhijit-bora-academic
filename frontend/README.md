@@ -4,6 +4,8 @@ A React + TypeScript single-page application for the personal academic website o
 
 The site is built as a restrained, editorial-style, animation-forward experience — staged text reveals, scroll-triggered entrances, a custom page-transition system, and a sliding-underline filter bar — implemented with hand-rolled hooks rather than an animation library.
 
+Live Site: [abhijit-bora-academic](https://abhijit-bora-academic.pages.dev/Home)
+
 ---
 
 ## Table of Contents
