@@ -11,7 +11,7 @@ export function useFontsReady() {
         if (root.dataset.fonts === "ready") return;
 
         const mark = () => { root.dataset.fonts = "ready"; };
-        const timer = window.setTimeout(mark, 1400);
+        const timer = window.setTimeout(mark, 700);
 
         if (!document.fonts) { mark(); return () => window.clearTimeout(timer); }
 

@@ -26,7 +26,7 @@
 .portrait__img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 35%; }
 .portrait__caption { margin-top: 26px; letter-spacing: 0.04em; }
 
-@keyframes portrait-wipe { from { clip-path: inset(0 0 100% 0); } to { clip-path: inset(0); } }
+/* @keyframes portrait-wipe { from { clip-path: inset(0 0 100% 0); } to { clip-path: inset(0); } }
 @keyframes portrait-settle { from { transform: scale(1.08); } to { transform: none; } }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -34,6 +34,14 @@
   html[data-fonts="ready"] .portrait { animation: portrait-wipe 1.2s var(--ease-out) 0.35s both; }
   .portrait__img { transform: scale(1.08); }
   html[data-fonts="ready"] .portrait__img { animation: portrait-settle 1.8s var(--ease-out) 0.35s both; }
+} */
+
+@keyframes portrait-wipe { from { clip-path: inset(0 0 100% 0); } to { clip-path: inset(0); } }
+@keyframes portrait-settle { from { transform: scale(1.08); } to { transform: none; } }
+
+@media (prefers-reduced-motion: no-preference) {
+  .portrait { animation: portrait-wipe 0.7s var(--ease-out) both; }
+  .portrait__img { animation: portrait-settle 1.1s var(--ease-out) both; }
 }
 
 @media (max-width: 860px) {
