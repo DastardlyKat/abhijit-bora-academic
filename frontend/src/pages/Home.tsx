@@ -14,8 +14,8 @@ import PublicationItem from "../components/PublicationItem"
 import { findPaper, hasReadableFiles, isConferencePaper, isJournalPaper, latestPapers, openPaperPdf, paperPdfUrl, usePapers } from "../lib/papers"
 import type { Paper } from "../lib/papers"
 
-import img from "../assets/photo.jpg"
-import img1 from "../assets/radio.jpg"
+import img from "../assets/photo.webp"
+import img1 from "../assets/radio.webp"
 
 const heroCard = {
   id: 1,
@@ -158,7 +158,7 @@ export default function Home() {
           </div>
         </div>
 
-        <Portrait className="hero__figure" src={img} alt="Dr. Abhijit Bora" caption="DR. ABHIJIT BORA · TEZPUR, ASSAM" />
+        <Portrait className="hero__figure" src={img} alt="Dr. Abhijit Bora" caption="DR. ABHIJIT BORA · TEZPUR, ASSAM"/>
       </section>
 
       <SectionHeader title="Featured Writing" />
@@ -167,7 +167,7 @@ export default function Home() {
         <Reveal>
           <Card as="article" variant="interactive" className="lead">
             <div className="lead__cover">
-              <img src={img1} alt={`Cover of “${heroCard.title}”`} width={680} height={1000} />
+              <img src={img1} alt={`Cover of “${heroCard.title}”`} width={680} height={1000} loading="lazy" decoding="async" />
             </div>
             <div className="lead__body">
               <Tag variant="outline" style={{ marginBottom: "14px" }}>{heroCard.category}</Tag>

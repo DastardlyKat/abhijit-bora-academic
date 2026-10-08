@@ -11,6 +11,8 @@ type PortraitProps = {
     style?: CSSProperties;
 };
 
+
+
 /**
  * The professor's photograph: a plain rectangle with an offset registration
  * frame, a curtain reveal and a 14px parallax. The source image is a 360px
@@ -26,7 +28,7 @@ export default function Portrait({ src, alt, caption, className, style }: Portra
             <div className="portrait-frame">
                 <div className="portrait">
                     <div className="portrait__par" ref={parRef}>
-                        <img className="portrait__img" src={src} alt={alt} width={360} height={360} />
+                        <img className="portrait__img" src={src} alt={alt} width={360} height={360} fetchPriority="high" decoding="async" />
                     </div>
                 </div>
             </div>

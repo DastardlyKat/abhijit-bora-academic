@@ -12,8 +12,8 @@ import Timeline from "../components/Timeline"
 import type { TimelineEntry } from "../components/Timeline"
 import VideoTile from "../components/VideoTile"
 
-import img from "../assets/photo.jpg"
-import radioCover from "../assets/radio.jpg"
+import img from "../assets/photo.webp"
+import radioCover from "../assets/radio.webp"
 
 const stats = [
   { number: "24+", label: "Peer-Reviewed Journal Papers" },
