@@ -101,7 +101,8 @@ export default function Home() {
   const { papers } = usePapers();
 
   const leadPaper = findPaper(papers, heroCard.title, PINNED_IDS[heroCard.title]);
-  const leadPdf = leadPaper?.pdf_url ? paperPdfUrl(leadPaper.id) : null;
+  // const leadPdf = leadPaper?.pdf_url ? paperPdfUrl(leadPaper.id) : null;
+  const leadPdf = leadPaper?.has_pdf ? paperPdfUrl(leadPaper.id) : null;
 
   // Live data when the API has it, the written-out text otherwise
   const conference = latestPapers(papers, isConferencePaper, 3);
@@ -112,7 +113,8 @@ export default function Home() {
         date: p.year,
         title: p.title,
         venue: p.venue || p.journal,
-        pdf: p.pdf_url ? paperPdfUrl(p.id) : null,
+        // pdf: p.pdf_url ? paperPdfUrl(p.id) : null,
+        pdf: p.has_pdf ? paperPdfUrl(p.id) : null,
       }))
     : sidebarCards.map(c => ({ key: `c${c.id}`, category: c.category, date: c.date, title: c.title, venue: c.venue, pdf: null }));
 
@@ -236,7 +238,8 @@ export default function Home() {
             /* Only when the API is unreachable: keep the original non-interactive pills */
             staticPills={!item.paper}
             alwaysShowAbstract
-            hasPdf={Boolean(item.paper?.pdf_url)}
+            // hasPdf={Boolean(item.paper?.pdf_url)}
+            hasPdf={Boolean(item.paper?.has_pdf)}
             onOpenPdf={item.paper ? () => openPaperPdf(item.paper!.id) : undefined}
             abstract={item.paper?.abstract}
           />

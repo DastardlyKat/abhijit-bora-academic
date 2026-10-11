@@ -176,7 +176,8 @@ export default function Research() {
                                                         identifiers={[paper.volume, paper.issn, paper.isbn].filter(Boolean) as string[]}
                                                         coAuthor={paper.co_author}
                                                         abstract={paper.abstract}
-                                                        hasPdf={Boolean(paper.pdf_url)}
+                                                        // hasPdf={Boolean(paper.pdf_url)}
+                                                        hasPdf={paper.has_pdf}
                                                         onOpenPdf={() => openPaperPdf(paper.id)}
                                                     />
                                                 );

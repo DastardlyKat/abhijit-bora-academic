@@ -16,7 +16,8 @@ export type Paper = {
     category: string;   // "Books" | "Peer-Reviewed" | "Reviewed" | "Conference Papers" | "Book Chapters"
     scope?: string | null; // "International" | "National" | "Regional" | null (Books have none)
     abstract?: string | null;
-    pdf_url?: string | null;
+    // pdf_url?: string | null;
+    has_pdf: boolean;
 };
 
 /** The (watermarked) PDF the backend serves for a paper. */
@@ -75,7 +76,8 @@ export function latestPapers(papers: Paper[], keep: (p: Paper) => boolean, n: nu
 }
 
 /** True when there is something to open: a PDF file or an abstract. */
-export const hasReadableFiles = (p: Paper) => Boolean(p.pdf_url) || Boolean(p.abstract?.trim());
+// export const hasReadableFiles = (p: Paper) => Boolean(p.pdf_url) || Boolean(p.abstract?.trim());
+export const hasReadableFiles = (p: Paper) => Boolean(p.has_pdf) || Boolean(p.abstract?.trim());
 
 const cat = (p: Paper) => p.category.toLowerCase();
 export const isConferencePaper = (p: Paper) => cat(p).includes("conference");
